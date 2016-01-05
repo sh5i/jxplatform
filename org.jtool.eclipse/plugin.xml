@@ -20,6 +20,10 @@
             class="org.jtool.eclipse.handlers.ParseExternalProjectAction"
             commandId="org.jtool.eclipse.commands.ParseExternalProject">
       </handler>
+      <handler
+            class="org.jtool.eclipse.handlers.ExportAction"
+            commandId="org.jtool.eclipse.commands.ExportAction">
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -57,6 +61,11 @@
                   label="Create CFG/PDG"
                   style="push">
             </command>
+            <command
+                  commandId="org.jtool.eclipse.commands.ExportAction"
+                  label="Export"
+                  style="push">
+            </command>
          </menu>
       </menuContribution>
       <menuContribution
@@ -88,6 +97,11 @@
             categoryId="org.jtool.eclipse.commands.category"
             id="org.jtool.eclipse.commands.CreateCFGPDGAction"
             name="Create CFG/PDG Action">
+      </command>
+      <command
+            categoryId="org.jtool.eclipse.commands.category"
+            id="org.jtool.eclipse.commands.ExportAction"
+            name="Export Action">
       </command>
    </extension>
 </plugin>
