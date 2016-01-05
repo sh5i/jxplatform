@@ -57,6 +57,11 @@ public class AttributeExtractor {
 
         List<Object> classes = new ArrayList<Object>();
         for (JavaClass c : jc.getJavaInnerClasses()) {
+            if (c == jc) {
+                // Self-loop detected. 
+                // TODO why happens?
+                continue;
+            }
             classes.add(toMap(c));
         }
         result.put("inner_classes", classes);
