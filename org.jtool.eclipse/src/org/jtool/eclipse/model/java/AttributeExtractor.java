@@ -47,11 +47,12 @@ public class AttributeExtractor {
         result.put("name", jc.getName());
         result.put("package", jc.getJavaPackage().getName());
         result.put("file", jc.getJavaFile().getPath());
-        if (jc.getSuperClassName() != null) {
-            result.put("extends", jc.getSuperClassName());
+        String superClassName = jc.getSuperClassName();
+        if (superClassName != null && !superClassName.equals("java.lang.Object")) {
+            result.put("extends", superClassName);
         }
         if (!jc.getSuperInterfaceNames().isEmpty()) {
-            result.put("implements", jc.getSuperInterfaceNames());
+            result.put("implements", new ArrayList<>(jc.getSuperInterfaceNames()));
         }
 
         List<Object> classes = new ArrayList<Object>();
