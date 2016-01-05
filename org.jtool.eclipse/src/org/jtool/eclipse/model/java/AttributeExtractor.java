@@ -19,7 +19,7 @@ public class AttributeExtractor {
         result.put("name", jp.getName());
         result.put("directory", jp.getTopDir());
         List<Object> classes = new ArrayList<Object>();
-        for (JavaClass jc : jp.getJavaClasses()) {
+        for (JavaClass jc : jp.getJavaClassesInDictionaryOrder()) {
             classes.add(toMap(jc));
         }
         result.put("classes", classes);
@@ -67,13 +67,13 @@ public class AttributeExtractor {
         result.put("inner_classes", classes);
 
         List<Object> fields = new ArrayList<Object>();
-        for (JavaField jf : jc.getJavaFields()) {
+        for (JavaField jf : jc.getJavaFieldsInDictionaryOrder()) {
             fields.add(toMap(jf));
         }
         result.put("fields", fields);
         
         List<Object> methods = new ArrayList<Object>();
-        for (JavaMethod jm : jc.getJavaMethods()) {
+        for (JavaMethod jm : jc.getJavaMethodsInDictionaryOrder()) {
             methods.add(toMap(jm));
         }
         result.put("methods", methods);
